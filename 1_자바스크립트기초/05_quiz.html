@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <form>    
+            <input type="text" id="userNum"><input type="button" value="확인" onclick="check(this.form.userNum.value)">
+        </form>
+        <h1 id="result">?</h1>
+        <script>
+            var ranNum =  Math.floor((Math.random() * 100)+1);
+            function check(userNum){
+                var result = document.getElementById("result");
+                    
+                    if (ranNum == userNum) {
+                        result.innerText = "정답입니다"
+                        result.style.color = "green";
+                    }else{
+                        if(ranNum > userNum){
+                            result.innerText = "업입니다"
+                            result.style.color = "red";
+                            document.getElementById("userNum").focus();
+                            document.getElementById("userNum").value = "";
+                        }else{
+                            result.innerText = "다운입니다"
+                            result.style.color = "red";
+                            document.getElementById("userNum").focus();
+                            document.getElementById("userNum").value =  "";
+                    }
+                } 
+        }
+        </script>
+    </body>
+</html>
