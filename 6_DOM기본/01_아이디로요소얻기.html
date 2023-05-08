@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <form>
+            <ul>
+                <li id="apple">사과</li>
+                <li id="banana" style="background-color: greenyellow;">바나나</li>
+                <li id="grap">포도</li>
+                <li id="peach">복숭아</li>
+            </ul>
+            <input type="button" onclick="change()" value="변경">
+        </form>
+        <script>
+            function change(){
+                const $banana = document.getElementById("banana");
+                console.log($banana.innerText);
+                $banana.style.background = "yellow";
+
+                // const $peach = document.getElementById("peach");
+                const $peach = document.querySelector("#peach");
+                $peach.style.color = "pink";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <ul id="fruits">
+            <li class="fr">사과</li>
+            <li class="fr banana">바나나</li>
+            <li class="fr grape">포도</li>
+            <li class="fr">복숭아</li>
+        </ul>
+
+        <script>
+            const $grape = document.querySelector(".grape");
+            $grape.textContent = "씨없는 포도";
+
+            //리스트 형태로 반환
+            const fr = document.querySelectorAll(".fr");
+            //리스트 형태이기 때문에 인덱싱 필요
+            fr[0].style.color = "red";
+
+            //일괄 적용시에는 for of
+            for (const li of fr) {
+                li.style.color = "magenta"
+            }
+
+            //디스트럭처링 할당
+            const [$a, $b, $c, $d] = document.querySelectorAll(".fr");
+            console.log($a);
+            console.log($b);
+            console.log($c);
+            console.log($d);
+            $d.textContent = "어피치";
+        </script>
+    </body>
+</html>
