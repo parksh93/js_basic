@@ -1,0 +1,21 @@
+<script>
+    var height = Number(prompt("키를 입력해주세요")) * 0.01;
+    var weight = Number(prompt("몸무게를 입력해주세요"));
+
+    function calcBMI(height, weight){
+        var bmi = Math.round(weight / (height * height),-1);
+        return bmi;
+    }
+    
+    var bmi = calcBMI(height,weight);
+    var message = '';
+    if (bmi >= 25.0) {
+        message =  "당신은 과체중입니다.";
+    }else if(bmi <= 18.5){
+        message =  "당신은 저체중입니다.";
+    }else{
+        message =  "당신은 정상체중입니다.";
+    }
+    alert(message);
+    window.close();
+</script>

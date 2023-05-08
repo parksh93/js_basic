@@ -1,0 +1,21 @@
+<script>
+    var  lesserafim = ['사쿠라','김채원','카즈하','허윤진','홍은채'];
+    
+    while (true) {
+        var deleteMemberName = prompt("삭제할 멤버의 이름을 적어주세요");
+        if (lesserafim.includes(deleteMemberName)) {
+            var index = lesserafim.indexOf(deleteMemberName);
+            lesserafim.splice(index,1);
+            if (lesserafim.length === 0) {
+                alert("모든 멤버가 삭제되어 프로그램을 종료합니다.");
+                break;
+            }else{
+                alert(`${deleteMemberName}를 삭제하여 ${lesserafim}가 남았습니다.`);
+            }
+        }else{
+            alert(`${deleteMemberName}는 존재하지 않는 멤버입니다.`);
+            alert('다시 입력해 주세요');
+        }
+    }
+    window.close();
+</script>
