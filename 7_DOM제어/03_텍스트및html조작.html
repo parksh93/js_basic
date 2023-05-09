@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="greet">
+            Hello<span>World!</span>
+        </div>
+
+        <script>
+            const $greet = document.getElementById("greet");
+            console.log($greet.textContent);    //문자만
+            console.log($greet.innerHTML);  //문자 + 태그
+
+            $greet.textContent = "변경"
+            $greet.textContent = "변경<span>입니다.</span>" //태그 인식안됨
+            $greet.innerHTML = "이것도 변경가능"
+            $greet.innerHTML = "이것도 <span style = 'color:red'>변경가능</span>"
+
+            //모든 자식 태그 삭제
+            $greet.innerHTML = "";
+
+            //innerHTML에 += 시 기존거에 추가된다
+            for (let index = 1; index <= 5; index++) {
+                $greet.innerHTML += `<h${index}>5번 반복: ${index}</h${index}>`;
+            }
+        </script>
+    </body>
+</html>

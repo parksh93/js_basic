@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <ul id="fruit">
+            <li class="fr apple">사과</li>
+            <li class="fr banana">바나나</li>
+            <li class="fr grape">포도</li>
+        </ul>
+        <div class="box">
+            <p></p>
+        </div>
+        <script>
+            const $fruits = document.getElementById("fruit");
+            console.dir($fruits); //모든 프로퍼티가 표시됨
+
+            //텍스트 노드까지 가져오기 때문에 잘 사용 안함
+            const $children = [...$fruits.children];
+
+            console.dir($children);
+
+            const $first = $fruits.firstElementChild;
+            const $last = $fruits.lastElementChild;
+
+            console.log($first);
+            console.log($last);
+
+            $first.style.fontSize = "200px";
+
+            $box = document.querySelector(".box");
+
+            function hasChildren($target){
+                //!!가 붙으면 true, false로 변환
+                //자식요소 길이가 0이면 false, 아니면 true
+                return !!$target.children.length;
+            }
+            //chlidren은 자식 요소를 가져옴
+            //.box는 자식 노드는 있지만 요소는 없기 때문에 false가 나온다
+            //p태그를 넣어주면 true가 나온다
+            console.log(hasChildren($box));
+        </script>
+
+    </body>
+</html>
