@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+        <style>
+            #fruits {
+                display: flex;
+                list-style: none;
+                padding: 20px;
+                border: 2px solid red;
+                flex-wrap: wrap;
+            }
+    
+            #fruits li {
+                width: 100px;
+                cursor: pointer;
+                background: orange;
+                margin-right: 10px;
+            }
+    
+            .active {
+                color: red;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="fruits">
+            <li id="apple" class="active">Apple</li>
+            <li id="banana">Banana</li>
+            <li id="grape">Grape</li>
+        </ul>
+
+        <div>현재 고른 과일 : <em class="msg">Apple</em></div>
+
+        <label>
+            새로운 과일 추가해주세요!
+            <input type="text" class="text-box" >
+            <button id="add">추가</button>
+        </label>
+
+        <script>
+            //li태그에 이벤트를 걸면 하나하나 다 걸어줘야 하기 때문에 부모태그 ul에 걸어준다
+            const $fruits = document.getElementById('fruits');
+
+            const removeActive = ()=>{
+                for($li of [...$fruits.children]){
+                    if($li.classList.contains('active')){
+                        $li.classList.remove('active');
+                    }
+                }
+            };
+            $fruits.onclick = e => {
+                //클릭한 요소가 li가 아니면 이벤트 막음
+                // console.log(e.target.matches('#fruits>li'));
+                if (!e.target.matches('#fruits>li')) {
+                    return;
+                }
+
+                removeActive();
+
+                e.target.classList.add('active');
+
+                document.querySelector('.msg').textContent = e.target.textContent;
+            }
+            document.getElementById('add').onclick = () => {
+                const $fruits = document.getElementById('fruits');
+                const $text_box = document.querySelector('.text-box');
+
+                let cnt = 0;
+                for ($li of [...$fruits.children]) {
+                    if ($li.textContent === $text_box.value) {
+                        cnt++;
+                    }    
+                }
+
+                if (1 <= cnt) {
+                    alert("이미 존재하는 과일입니다.");
+                    return;
+                }
+
+                const $newLi = document.createElement('li');
+                $newLi.textContent = $text_box.value;
+                $fruits.appendChild($newLi);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+        <style>
+            ul {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="lunchMenu">
+            <button id="showMenu">메뉴추천</button>
+            <ul>
+                <li>피자</li>
+                <li>치킨</li>
+                <li>탕수육</li>
+                <li>김치볶음밥</li>
+            </ul>
+        </div>
+        <script>
+            document.getElementById('showMenu').onclick = () =>{
+                document.querySelector('ul').style.display = "initial";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+        <style>
+
+            .box {
+                width: 100px;
+                height: 100px;
+                background: orange;
+                margin: 20px;
+            }
+            .box.red {
+                background: red;
+            }
+            .box.green {
+                background: yellowgreen;
+                font-size: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" onclick="alert('첫 번째 박스 클릭함');"></div>
+        <div class="box red" ondblclick = "widthDouble();"></div>
+        <div class="box green" onmouseout="hiOut()"></div>
+
+        <script>
+            function widthDouble() {
+                const $redBox = document.querySelector(".red");
+                $redBox.style.width = '200px';
+            }
+
+            document.querySelector('.green').onmouseover = function (){
+                document.querySelector(".green").textContent = "안녕";
+            }
+            // document.querySelector('.green').onmouseout = function(){
+            //     document.querySelector(".green").textContent = "";
+            // }
+            const hiOut = () => document.querySelector(".green").textContent = "";
+            
+        </script>
+    </body>
+</html>

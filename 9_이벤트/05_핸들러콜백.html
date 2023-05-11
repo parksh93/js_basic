@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <button id = "btn">클릭</button>
+        <h1></h1>
+        <script>
+            function hello() {
+                alert('안녕');
+            }
+
+            const $btn = document.getElementById('btn');
+
+            $btn.addEventListener('click',hello);
+
+            $btn.addEventListener('click',()=>document.querySelector('h1').textContent = '안녕');
+            // $btn.addEventListener('click',()=>alert('안녕'));
+
+            $btn.removeEventListener('click',hello);
+        </script>
+    </body>
+</html>

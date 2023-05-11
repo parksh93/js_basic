@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <p>아무곳이나 클릭하세요</p>
+        <em class = "msg"></em>
+
+        <hr><hr><hr>
+
+        <input type="text" id="text">
+        <p class="show"></p>
+
+        <script>
+            document.onmouseover = function(event){
+                // console.log(event);
+
+                //마우스 좌표 리턴
+                const {x, y} = event;
+                // console.log(x);
+                // console.log(y);
+
+                const $msg = document.querySelector(".msg");
+                $msg.textContent = `x : ${x} y : ${y}`;
+            };
+            const $input = document.querySelector("input");
+
+            function inputKeyUp(e){
+                const $show = document.querySelector(".show");
+
+
+                $show.textContent = $input.value;
+            }
+
+            $input.addEventListener('keypress',inputKeyUp);
+        </script>
+    </body>
+</html>

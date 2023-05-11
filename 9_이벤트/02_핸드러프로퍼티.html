@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="b1">클릭1</button>
+        <button id="b2">클릭2</button>
+        <button id="b3">클릭3</button>
+
+        <script>
+            const [$b1, $b2, $b3] = document.querySelectorAll('button');
+
+            const sayHello = () => alert("안녕하세요");
+
+            $b1.onclick = sayHello;
+
+            const red = () => $b2.style.background = "red";
+            $b2.onclick = red;
+
+            $b3.onmouseover = () => {
+                $b3.style.background = 'blue';
+            }
+
+            $b3.onmouseout = () => $b3.style.background = "yellow";
+        </script>
+    </body>
+</html>
