@@ -83,6 +83,10 @@
                 const $newLi = document.createElement('li');
                 $newLi.textContent = $text_box.value;
                 $fruits.appendChild($newLi);
+                // $newLi.id = $text_box.value;
+                $newLi.setAttribute("id", $text_box.value.toLowerCase())
+
+                $text_box.value = "";
             }
         </script>
     </body>
