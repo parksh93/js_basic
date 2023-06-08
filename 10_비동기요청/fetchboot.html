@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="getPersonList">호출</button>
+        
+        <script src = "fetchboot.js"></script>
+        <script>
+            let $b = document.getElementById('getPersonList');
+            //함수에 ()를 붙이면 함수를 실행한 결과를 넣는게 된다.
+            $b.addEventListener("click", loadPersonList);   //선언해둔 함수 호출
+        </script>
+    </body>
+</html>
