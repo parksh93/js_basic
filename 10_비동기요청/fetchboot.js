@@ -11,8 +11,28 @@ async function loadPersonList(){
     console.dir(response);
 
     //fetch의 결과로 받은 response의 body에 들어있던 json을 뽑아낼 수 있음
-    const jsonData = await response.json();
+    const jsonArray = await response.json();
     console.log('---------json---------');
-    console.log(jsonData);
-    return jsonData;
+    console.log(jsonArray);
+    
+    let $ul = document.getElementById('list');
+    for (let jsonData of jsonArray) {
+        console.log(jsonData.id);
+        console.log(jsonData.name);
+        console.log(jsonData.age);
+        
+        let $h1 = document.createElement('h1');
+        $h1.textContent = `번호 : ${jsonData.id}, 이름 : ${jsonData.name}, 나이 : ${jsonData.age}`;
+        $ul.appendChild($h1);
+    }
+    
+    // let str = "";
+    // for (let jsonData of jsonArray) {
+    //     str += `<h1>번호 : ${jsonData.id}, 이름 : ${jsonData.name}, 나이 : ${jsonData.age}</h1>`;
+    //     $ul.innerHTML = str;
+    // }
 }
+
+let $b = document.getElementById('getPersonList');
+//함수에 ()를 붙이면 함수를 실행한 결과를 넣는게 된다.
+$b.addEventListener("click", loadPersonList);   //선언해둔 함수 호출
